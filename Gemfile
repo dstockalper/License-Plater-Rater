@@ -29,6 +29,11 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# https://devcenter.heroku.com/articles/rails-4-asset-pipeline
+# By default Rails 4 will not serve your assets. To enable this functionality 
+# you can achieve the same result by including the rails_12factor gem in your Gemfile:
+gem 'rails_12factor', group: :production
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
