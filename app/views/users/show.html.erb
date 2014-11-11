@@ -1,0 +1,40 @@
+<%= render partial: 'nav' %>
+
+<div class="container" ng-app='myApp'>
+	<div class="row">
+		<div class="col-md-4">
+			Profile
+		</div>
+		<div class="col-md-8">
+
+			<section class="tab" ng-controller="TabController as tab">
+				<ul class="nav nav-pills">
+					<li ng-class="{ active: tab.isSet(1) }">
+						<a href ng-click="tab.setTab(1)">Overall Rating Score</a>
+					</li>
+					<li ng-class="{ active: tab.isSet(2) }">
+						<a href ng-click="tab.setTab(2)">Map</a>
+					</li>
+					<li ng-class="{ active: tab.isSet(3) }">
+						<a href ng-click="tab.setTab(3)">Reviews Feed</a>
+					</li>
+				</ul>
+				
+				<div ng-show="tab.isSet(1)">
+					Overall
+				</div>
+				<div ng-show="tab.isSet(2)">
+					Map
+				</div>
+				<div ng-show="tab.isSet(3)">
+					Reviews
+				</div>
+			</section>
+
+		</div>
+	</div>
+</div>
+
+
+<%= render partial: 'footer' %>
+
