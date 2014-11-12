@@ -1,0 +1,104 @@
+<%= form_tag("/reviews") do |f| %>
+		
+	<div class="container">
+			<div class="row"><br><br><br></div>
+			<div class="row">
+
+				<div class="col-md-4">
+					<div>License Plate Info</div>
+					<br>
+					<%= select_tag :plate_state, 
+						options_for_select(["AL", "AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC","Other"]) %>
+					<%= text_field_tag :plate_number, nil, :placeholder=>"License Plate Number" %>
+					<br><br><br><br>
+					<%= submit_tag "Rate the Plate" %><br><br>
+				</div>
+
+				<div class="col-md-8">
+					<table class="table table-condensed" border="3">
+						<tr>
+							<th colspan="2">Aggressive</th>
+							<th colspan="2">Inattentive</th>
+							<th colspan="2">Alert</th>
+							<th colspan="2">Parking</th>
+						</tr>
+						<tr>
+							<td><%= label_tag "Speeding" %></td>
+							<td><%= check_box_tag :agg_speeding %> </td>
+							<td><%= label_tag "Sudden Braking" %></td>
+							<td><%= check_box_tag :ina_braking %> </td>
+							<td><%= label_tag "Safe" %></td>
+							<td><%= check_box_tag :ale_safe %> </td>
+							<td><%= label_tag "Blocking" %></td>
+							<td><%= check_box_tag :park_blocking %> </td>
+						</tr>
+						<tr>
+							<td><%= label_tag "Weaving" %></td>
+							<td><%= check_box_tag :agg_weaving%> </td>
+							<td><%= label_tag "Drifting" %></td>
+							<td><%= check_box_tag :ina_drifting %> </td>
+							<td><%= label_tag "Courteous" %></td>
+							<td><%= check_box_tag :ale_courteous %> </td>
+							<td><%= label_tag "Illegal" %></td>
+							<td><%= check_box_tag :park_illegal %> </td>
+						</tr>
+						<tr>
+							<td><%= label_tag "Tailgating" %></td>
+							<td><%= check_box_tag :agg_tailgating%> </td>
+							<td><%= label_tag "Drifting" %></td>
+							<td><%= check_box_tag :ina_drifting %> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><%= label_tag "Cutting" %></td>
+							<td><%= check_box_tag :agg_cutting %> </td>
+							<td><%= label_tag "Pedestrian Encounter" %></td>
+							<td><%= check_box_tag :ina_pedestrian %> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><%= label_tag "Running Light" %></td>
+							<td><%= check_box_tag :agg_light%> </td>
+							<td><%= label_tag "On the Phone" %></td>
+							<td><%= check_box_tag :ina_phone %> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><%= label_tag "Road Rage" %></td>
+							<td><%= check_box_tag :agg_rage%> </td>
+							<td><%= label_tag "Drunk Driving" %></td>
+							<td><%= check_box_tag :ina_drunk %> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><%= label_tag "Other Aggressive" %></td>
+							<td><%= check_box_tag :agg_other%> </td>
+							<td><%= label_tag "Other Inattentive" %></td>
+							<td><%= check_box_tag :ina_other %> </td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+
+					
+
+				<% end %>
+				
+	</div>

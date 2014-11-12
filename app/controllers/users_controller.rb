@@ -23,19 +23,23 @@ class UsersController < ApplicationController
 						plate_state: params[:plate_state], 
 						plate_number: params[:plate_number]
 					   }
+
 		@user = User.new(user_params)
 		@plate = Plate.find_by(plate_state: params[:plate_state], plate_number: params[:plate_number])
+
 		if @plate
 			@user.plate = @plate
 			# equivalent to @user.plate_id = @plate.id
 			# rails makes the connection because we have set up belongs_to-has_one relationship
 		else
 			@new_plate = Plate.new(plate_params)
+			@new_plate.save
 			@user.plate = @new_plate
 		end
+
 		if @user.save
 			session[:current_user_id] = @user.id
-			redirect_to user_path(:id)
+			redirect_to user_path(@user.id)
 		else
 			render new_user_path
 		end
