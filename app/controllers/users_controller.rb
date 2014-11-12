@@ -3,6 +3,12 @@ class UsersController < ApplicationController
 	end
 
 	def new
+
+		if current_user
+			redirect_to user_path(:id)
+		else
+			return
+		end
 		@user = User.new
 	end
 
@@ -27,12 +33,21 @@ class UsersController < ApplicationController
 			@new_plate = Plate.new(plate_params)
 			@user.plate = @new_plate
 		end
-		@user.save
-		redirect_to user_path(:id)
+		if @user.save
+			session[:current_user_id] = @user.id
+			redirect_to user_path(:id)
+		else
+			render new_user_path
+		end
+		
+		
 	end
 
 
 	def show
+		if !current_user
+			redirect_to new_user_path
+		end
 	end
 
 

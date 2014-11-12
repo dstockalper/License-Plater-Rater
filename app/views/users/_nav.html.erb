@@ -13,7 +13,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#"><i class="fa fa-car"></i>My Dashboard</a></li>
             <li><a href="#about">Edit Profile</a></li>
-            <li><a href="#contact">Logout</a></li>
+            <li><%= link_to ' Logout', sessions_path, method: :delete, :class=>"fa fa-lock" %></li>
             <li><a href="#contact">Review a License Plate</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :plates
   resources :reviews
 
+  post 'sessions' => 'sessions#create'
+  delete 'sessions' => 'sessions#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

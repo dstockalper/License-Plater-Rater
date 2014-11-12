@@ -6,7 +6,6 @@ class PlatesController < ApplicationController
 
 	def create
 		@plate = Plate.find_or_create_by(:plate_state => :plate_state ,:plate_number => :plate_number)
-		render ""
 	end
 
 

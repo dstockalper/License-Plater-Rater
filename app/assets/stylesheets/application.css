@@ -35,8 +35,10 @@ body {
 }
 
 .jumbotron{
-	background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQz_xJJap_qR4FQ4b1Qxo6LVPc8vjefaBTSULCVuW1cmu5VQkFyyQ");
-	background-size: 30%;
-	background-repeat: no-repeat;
-	height: 50%;
+	color: white;
+	background-color: #9CCFF2;
+}
+
+.jumbo_img{
+	left: 100px;
 }
