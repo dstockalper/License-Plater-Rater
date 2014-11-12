@@ -1,0 +1,33 @@
+<div class="container ">
+	<div class="row">
+		<h2>Sign Up</h2>
+		<div class="col-md-3">
+			
+				<%= form_tag("/users") do |f| %>
+					<p>
+						<%= text_field_tag :email, nil, :placeholder => "name@example.com" %>
+					</p>
+					<p>
+						<%= password_field_tag :password, nil, :placeholder => "password" %>
+					</p>
+					<p>
+						<%= password_field_tag :password_confirmation, nil, :placeholder => "password confirmation" %>
+					</p>
+		</div>
+		<div class="col-md-2">
+					<p>
+						<%= select_tag :plate_state,
+						options_for_select(["AL", "AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC","Other"]) %>
+					</p>
+					<p>
+						<%= text_field_tag :plate_number, nil, :placeholder => "License Plate Number" %>
+					</p>
+					<p>
+						<%= submit_tag "Sign Up" %>
+					</p>
+				<% end %>
+				
+		</div>
+
+	</div>
+</div>

@@ -22,10 +22,10 @@
 body { 
     padding-top: 65px; 
 }
-
-.content {
-	height: 300px;
+.intro{
+	height: 400px;
 }
+
 .footer {
 	position: absolute;
 	bottom: 0;

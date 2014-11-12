@@ -1,0 +1,31 @@
+<%= render partial: 'nav' %>
+
+<div class="container">
+
+	<div class="row">
+
+
+	
+
+	<div class="col-md-12">
+		<h2>To Register:</h2>
+		<h4>- first claim a license plate number</h4>
+		<h4>- then enter your email</h4>
+
+		<%= form_for @plate do |f| %>
+			<p>
+				<%= f.text_field :plate_state, :placeholder => "State" %>
+			</p>
+			<p>
+				<%= f.text_field :plate_number, :placeholder => "License Plate Number" %>
+			</p>
+			<p>
+				<%= f.submit "Claim License Plate" %>
+			</p>
+		<% end %>
+		
+
+	</div>
+</div>
+
+<%= render partial: 'footer' %>
