@@ -3,13 +3,11 @@ class UsersController < ApplicationController
 	end
 
 	def new
-
 		if current_user
 			redirect_to user_path(:id)
-		else
-			return
 		end
 		@user = User.new
+
 	end
 
 	def create
@@ -49,9 +47,22 @@ class UsersController < ApplicationController
 
 
 	def show
-		if !current_user
-			redirect_to new_user_path
+
+		respond_to do |format|
+			format.html {
+				if !current_user
+					redirect_to new_user_path and return
+				end
+
+				@current_plate = Plate.find(current_user.plate_id)
+			}
+
+			format.json {
+				render json: User.find(params[:id])
+			}
 		end
+
+		
 	end
 
 

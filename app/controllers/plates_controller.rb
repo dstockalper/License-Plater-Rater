@@ -1,5 +1,16 @@
 class PlatesController < ApplicationController
 	
+	def index
+
+		
+		respond_to do |format|
+
+		end
+	end
+
+	def show
+	end
+
 	def new
 		@plate = Plate.new
 	end
