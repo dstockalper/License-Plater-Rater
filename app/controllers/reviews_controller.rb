@@ -13,8 +13,12 @@ class ReviewsController < ApplicationController
 
 	def create
 		# params hash comes in from form_tag containing attributes for new user and new plate
+		h = { "Road"=>"", "Street"=>"", "Avenue"=>"", "Way"=>""}
+		street = params[:address].split(",")[0].gsub(/\w+/){|m| h.fetch(m,m)}
+
 		review_params = { 
 						user_id: current_user.id,
+						address: params[:address], street: street, city: params[:address].split(",")[1], latitude: params[:latitude], longitude: params[:longitude],
 						agg_speeding: params[:agg_speeding], agg_weaving: params[:agg_weaving],agg_tailgating: params[:agg_tailgating],agg_cutting: params[:agg_cutting],agg_light: params[:agg_light],agg_rage: params[:agg_rage],agg_other: params[:agg_other],
 						ina_braking: params[:ina_braking], ina_drifting: params[:ina_drifting],ina_intersection: params[:ina_intersection],ina_pedestrian: params[:ina_pedestrian],ina_phone: params[:ina_phone],ina_drunk: params[:ina_drunk],ina_other: params[:ina_other],
 						ale_safe: params[:ale_safe], ale_courteous: params[:ale_courteous],park_blocking: params[:park_blocking],park_illegal: params[:park_illegal]
@@ -26,7 +30,7 @@ class ReviewsController < ApplicationController
 		@user = current_user
 		@review = Review.new(review_params)
 		@plate = Plate.find_by(plate_state: params[:plate_state], plate_number: params[:plate_number])
-
+		binding.pry
 		if @plate
 			@review.plate = @plate
 		else

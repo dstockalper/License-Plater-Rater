@@ -7,6 +7,7 @@
 			<tr>
 				<th></th>
 				<th></th>
+				<th></th>
 				<th></th>	
 				<th colspan="7" class="reviewTableCategory aggressive">Aggressive</th>
 				<th colspan="7" class="reviewTableCategory inattentive">Inattentive</th>
@@ -15,7 +16,8 @@
 			<tr>
 				<th class="reviewTableHeader">Date</th>
 				<th class="reviewTableHeader">Time</th>
-				<th class="reviewTableHeader">Location</th>
+				<th class="reviewTableHeader">Street</th>
+				<th class="reviewTableHeader">City</th>
 				<th class="reviewTableHeader aggressive">Sp</th>
 				<th class="reviewTableHeader aggressive">Wv</th>
 				<th class="reviewTableHeader aggressive">TG</th>
@@ -41,7 +43,8 @@
 			<tr ng-repeat="review in ctrl.reviews | orderBy: '-created_at' | limitTo: 10">
 				<td class="reviewTableBody">{{ review.created_at | date: 'shortDate'}}</td>
 				<td class="reviewTableBody">{{ review.created_at | date: 'HH:mm'}}</td>
-				<td class="reviewTableBody"></td>
+				<td class="reviewTableBody">{{ review.street }}</td>
+				<td class="reviewTableBody">{{ review.city }}</td>
 				<td class="reviewTableBody aggressive">{{review.agg_speeding==='1' ? "&#x2713;" : ""}}</td>
 				<td class="reviewTableBody aggressive">{{review.agg_weaving==='1' ? "&#x2713;" : ""}}</td>
 				<td class="reviewTableBody aggressive">{{review.agg_tailgating==='1' ? "&#x2713;" : ""}}</td>
