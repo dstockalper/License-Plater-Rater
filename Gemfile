@@ -40,6 +40,11 @@ gem 'rails_12factor', group: :production
 gem 'ng-rails-csrf'
 gem 'angularjs-rails'
 
+# add bootstrap styling to rails forms
+gem 'bootstrap_form'
+
+gem 'geocoder'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

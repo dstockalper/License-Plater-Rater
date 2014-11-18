@@ -13,6 +13,58 @@
 				<%= text_field_tag :plate_number, nil, :class=>"form-control", :placeholder=>"License Plate Number" %>
 			</div>
 		</div>
+		<div class="form-group">
+			<fieldset disabled>
+				<!-- geolocation button -->
+				<label class="col-sm-2 control-label col-sm-offset-2">Geoocation</label>
+				<div class="col-md-3">
+					<%= text_field_tag :plate_number, nil, :class=>"form-control readonly", :id=>"city", :placeholder=>"city" %>
+				</div>
+				<div class="col-md-1">
+					<%= text_field_tag :plate_number, nil, :class=>"form-control", :id=>"latitude", :placeholder=>"lat" %>
+				</div>
+				<div class="col-md-1">
+					<%= text_field_tag :plate_number, nil, :class=>"form-control", :id=>"longitude", :placeholder=>"lng" %>
+				</div>
+			</fieldset>
+		</div>
+				<!-- <input type="button" value="Include Location" onclick="showlocation()"/>  -->
+
+				<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+				<div id="test"></div>
+				
+				<!-- Latitude: <span id="latitude">..</span><br>
+				Longitude: <span id="longitude">..</span> -->
+
+				<SCRIPT>
+				window.onload = function (){
+					navigator.geolocation.watchPosition(callback);
+					console.log("showlocation is firing");
+				}
+				function callback(position){
+					console.log("callback is firing")
+					var lat = position.coords.latitude;
+					var lng = position.coords.longitude;
+					document.getElementById('latitude').value=lat;
+					document.getElementById('longitude').value=lng;
+
+					function initMap (){ 
+						geocoder = new google.maps.Geocoder();
+					}
+					initMap();
+
+					var latlng = new google.maps.LatLng(lat,lng);
+					geocoder.geocode({
+				        'latLng': latlng
+				    }, function(results, status) {
+
+				        document.getElementById("city").value = '' + (results[0].formatted_address); + ''
+				    });
+				}
+				</SCRIPT>
+				
+
+		
 		<br><br>
 
 		
@@ -132,7 +184,7 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-5 col-sm-4">
-				<br><br><br>
+				<br><br>
 				<%= submit_tag "Rate the Plate" , :class=>"btn btn-success"%>
 			</div>
 		</div>

@@ -32,13 +32,23 @@
 	app.controller("myController", ["ngUser", "ngReview", function(ngUser, ngReview){
 
 		this.reviews = ngReview.query();
-		console.log("current user reviews: ");
-		console.log(this.reviews);
 
-		this.test = [{name: "doug"}, {name: "charley"}]
+		var msg = new SpeechSynthesisUtterance();
+		msg.text="Enter the license plate number and review another driver.";
+		speechSynthesis.speak(msg);
 
 
 	}]);
+
+	app.controller("geoController", function(){
+		function showlocation(){
+			navigator.geolocation.watchPosition(callback);
+		}
+		function callback(position){
+			document.getElementById('latitude').innerHTML=position.coords.latitude;
+			document.getElementById('longitude').innerHTML=position.coords.longitude;
+		}
+	});
 
 
 })();
