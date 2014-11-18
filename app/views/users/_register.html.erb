@@ -3,8 +3,8 @@
 <h2>Sign Up:</h2><br>
 		
 <div class="col-md-8">
-	<form class="form-horizontal" role="form">
-			<%= form_tag("/users") do |f| %>
+	<!-- <form class="form-horizontal" role="form"> -->
+			<%= form_tag(("/users"), :class=> "form-horizontal") do %>
 
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
@@ -47,9 +47,10 @@
 					</div>
 				</div>	
 
-		<% end %>
-	</form>
+			<% end %>
+	<!-- </form> -->
 </div>
+
 <div class="col-md-4">
 	<% flash.each do |name, msg| -%>
 		<%= content_tag :div, msg, class: name %>

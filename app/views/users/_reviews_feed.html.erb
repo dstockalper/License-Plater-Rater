@@ -1,5 +1,24 @@
+<!-- 
 
+	<div ng-controller="myController">
+		<section ng-controller="myController as ctrl">
 
+			<ul>
+				<li ng-repeat="i in ctrl.test">
+					{{i.name}}
+				</li>
+			</ul>
+
+			<br>
+
+			<ul>
+				<li ng-repeat="review in ctrl.reviews">
+					{{review.id}} {{review.agg_speeding}}
+				</li>
+			</ul>
+		</section>
+	</div> -->
+<br><br>
 <section ng-controller="myController as ctrl">
 	<div>
 		<table class="table table-condensed" border="3">
@@ -8,8 +27,8 @@
 				<th></th>
 				<th></th>
 				<th></th>	
-				<th colspan="5" class="reviewTableCategory aggressive">Aggressive</th>
-				<th colspan="4" class="reviewTableCategory inattentive">Inattentive</th>
+				<th colspan="7" class="reviewTableCategory aggressive">Aggressive</th>
+				<th colspan="7" class="reviewTableCategory inattentive">Inattentive</th>
 				<th colspan="2" class="reviewTableCategory alert">Alert</th>
 			</tr>
 			<tr>
@@ -20,31 +39,44 @@
 				<th class="reviewTableHeader aggressive">Wv</th>
 				<th class="reviewTableHeader aggressive">TG</th>
 				<th class="reviewTableHeader aggressive">Ct</th>
-				<th class="reviewTableHeader aggressive">O</th>
+				<th class="reviewTableHeader aggressive">L</th>
+				<th class="reviewTableHeader aggressive">R</th>
+				<th class="reviewTableHeader aggressive">OA</th>
+
 				<th class="reviewTableHeader inattentive">Br</th>
 				<th class="reviewTableHeader inattentive">Dr</th>
+				<th class="reviewTableHeader inattentive">In</th>
+				<th class="reviewTableHeader inattentive">Pd</th>
 				<th class="reviewTableHeader inattentive">Ph</th>
 				<th class="reviewTableHeader inattentive">DD</th>
+				<th class="reviewTableHeader inattentive">OI</th>
 				<th class="reviewTableHeader alert">Sf</th>
 				<th class="reviewTableHeader alert">Cr</th>
 			</tr>	
 			</thead>
 			<tbody>
-			<tr ng-repeat="review in ctrl.allCurrentUserReviews | orderBy: '-created_at' | limitTo: 10">
+	
+
+			<tr ng-repeat="review in ctrl.reviews | orderBy: '-created_at' | limitTo: 10">
 				<td class="reviewTableBody">{{ review.created_at | date: 'shortDate'}}</td>
 				<td class="reviewTableBody">{{ review.created_at | date: 'HH:mm'}}</td>
 				<td class="reviewTableBody"></td>
-				<td class="reviewTableBody aggressive">{{review.agg_speeding===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody aggressive">{{review.agg_weaving===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody aggressive">{{review.agg_tailgating===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody aggressive">{{review.agg_cutting===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody aggressive">{{review.agg_other===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody inattentive">{{review.inattentive_braking===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody inattentive">{{review.inattentive_drifting===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody inattentive">{{review.inattentive_phone===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody inattentive">{{review.inattentive_drunk===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody alert">{{review.ale_safe===1 ? "&#x2713;" : ""}}</td>
-				<td class="reviewTableBody alert">{{review.ale_courteous===1 ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_speeding==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_weaving==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_tailgating==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_cutting==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_light==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_rage==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody aggressive">{{review.agg_other==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_braking==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_drifting==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_intersection==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_pedestrian==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_phone==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_drunk==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody inattentive">{{review.ina_other==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody alert">{{review.ale_safe==='1' ? "&#x2713;" : ""}}</td>
+				<td class="reviewTableBody alert">{{review.ale_courteous==='1' ? "&#x2713;" : ""}}</td>
 			</tr>
 			</tbody>
 		</table>

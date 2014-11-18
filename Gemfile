@@ -34,6 +34,12 @@ gem 'bcrypt', '~> 3.1.7'
 # you can achieve the same result by including the rails_12factor gem in your Gemfile:
 gem 'rails_12factor', group: :production
 
+# Using AngularJS and Rails together? 
+# If you are making any HTTP requests then the "ng-rails-csrf" gem can help by automatically adding the CSRF token to HTTP headers. 
+# Rails will not accept requests without this token if you are using CSRF protection.
+gem 'ng-rails-csrf'
+gem 'angularjs-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

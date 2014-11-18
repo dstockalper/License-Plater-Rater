@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+
+
 	def index
+
 	end
 
 	def new
@@ -11,6 +14,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
+
 		# params hash comes in from form_tag containing attributes for new user and new plate
 		user_params = { 
 						email: params[:email], 
@@ -53,20 +57,20 @@ class UsersController < ApplicationController
 				if !current_user
 					redirect_to new_user_path and return
 				end
-
 				@current_plate = Plate.find(current_user.plate_id)
 			}
 
 			format.json {
-				render json: User.find(params[:id])
-			}
-		end
 
+			}
+
+		end
 		
 	end
 
 
 	private
+
 
 	def user_params
 		params.require(:user).permit(
@@ -77,4 +81,5 @@ class UsersController < ApplicationController
 			:plate_number
 		)
 	end	
+
 end

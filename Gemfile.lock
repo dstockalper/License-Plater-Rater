@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angularjs-rails (1.2.25)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
     builder (3.2.2)
@@ -55,6 +56,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    ng-rails-csrf (0.1.0)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -121,10 +123,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angularjs-rails
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)
   jquery-rails
+  ng-rails-csrf
   pg
   pry
   rails (= 4.1.6)

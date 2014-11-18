@@ -1,10 +1,10 @@
 (function(){
 
-	var app = angular.module('myApp',["ngResource"])
+	var app = angular.module('myApp',["ngResource"]);
 
 	// TabController controlls the three tab click functions
 	app.controller("TabController", function(){
-		this.tab = 1;
+		this.tab = 3;
 
 		this.setTab = function(value){
 		    this.tab = value;
@@ -31,12 +31,12 @@
 
 	app.controller("myController", ["ngUser", "ngReview", function(ngUser, ngReview){
 
-		this.currentUserId = ngUser.get();
-		console.log("currentUser");
-		console.log(this.currentUserId);
-		console.log(this.currentUserId["value"]);
-		this.allCurrentUserReviews = ngReview.query(this.currentUserId);
-		console.log(this.allCurrentUserReviews);
+		this.reviews = ngReview.query();
+		console.log("current user reviews: ");
+		console.log(this.reviews);
+
+		this.test = [{name: "doug"}, {name: "charley"}]
+
 
 	}]);
 

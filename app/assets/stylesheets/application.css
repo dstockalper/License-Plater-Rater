@@ -42,3 +42,34 @@ body {
 .jumbo_img{
 	height: 200px;
 }
+
+.reviewTableHeader {
+	text-align: center;
+}
+
+
+.reviewTableBody {
+	text-align: center;
+}
+
+.reviewTableCategory {
+	text-align: center;
+	font-weight: bold;
+}
+
+.aggressive{
+	background-color: #FF6347;
+}
+
+.inattentive{
+	background-color: #FFD700;
+}
+
+.alert{
+	background-color: #ADFF2F;
+}
+
+.table{
+	margin-top: 20px;
+	width: 100%;
+}

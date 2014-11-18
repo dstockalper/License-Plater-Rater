@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 	
 	def index
+		render json: Review.where("plate_id = '#{current_user.plate_id}'")
 	end
 
 	
