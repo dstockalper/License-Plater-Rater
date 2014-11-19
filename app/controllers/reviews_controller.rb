@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
 		@user = current_user
 		@review = Review.new(review_params)
 		@plate = Plate.find_by(plate_state: params[:plate_state], plate_number: params[:plate_number])
-		binding.pry
+		
 		if @plate
 			@review.plate = @plate
 		else
