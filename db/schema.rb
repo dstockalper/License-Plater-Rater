@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118230125) do
+ActiveRecord::Schema.define(version: 20141119230809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,10 @@ ActiveRecord::Schema.define(version: 20141118230125) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "vehicle_image_file_name"
+    t.string   "vehicle_image_content_type"
+    t.integer  "vehicle_image_file_size"
+    t.datetime "vehicle_image_updated_at"
   end
 
 end

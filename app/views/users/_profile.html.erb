@@ -1,0 +1,8 @@
+
+<% if logged_in? %>           
+	Logged in as <%= current_user.email %><br><br>
+	Vehicle Image: <br><%= image_tag current_user.vehicle_image.url(:medium) %><br><br>
+	State: <%= @current_plate.plate_state %><br>
+	License Plate: <%= @current_plate.plate_number %>
+			<br><br>
+<% end %>

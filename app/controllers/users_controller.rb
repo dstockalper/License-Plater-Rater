@@ -15,11 +15,13 @@ class UsersController < ApplicationController
 
 	def create
 
+		binding.pry
 		# params hash comes in from form_tag containing attributes for new user and new plate
 		user_params = { 
 						email: params[:email], 
 						password: params[:password], 
-						password_confirmation: params[:password_confirmation]
+						password_confirmation: params[:password_confirmation],
+						vehicle_image: params[:vehicle_image]
 					  }
 		plate_params = {
 						plate_state: params[:plate_state], 
@@ -78,7 +80,8 @@ class UsersController < ApplicationController
 			:password,
 			:password_confirmation,
 			:plate_state,
-			:plate_number
+			:plate_number,
+			:vehicle_image
 		)
 	end	
 

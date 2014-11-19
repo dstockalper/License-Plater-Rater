@@ -45,6 +45,8 @@ gem 'bootstrap_form'
 
 gem 'geocoder'
 
+gem "paperclip", "~> 4.2"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
