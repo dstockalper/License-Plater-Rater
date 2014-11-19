@@ -15,7 +15,10 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
-
+//= require amcharts.js
+//= require serial.js
+//= require chart_test.js
+//= require app.js
 //= require bootstrap.min
 
 //= require_tree .
